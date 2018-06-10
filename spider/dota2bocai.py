@@ -26,7 +26,8 @@ def get_content(url):
         match = soup.find_all('div', attrs={'class': 'matchmain'})[0]
         teams = []
         for team in match.find_all('div', {'class': 'teamtext'}):
-            teams.append(team.find('b').text.strip())
+            teams.append(team.b.text.strip())
+        print(teams)
     except Exception as ex:
         print('error happend:%s' % str(ex))
 
