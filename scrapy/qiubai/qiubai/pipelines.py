@@ -8,4 +8,7 @@
 
 class QiubaiPipeline(object):
     def process_item(self, item, spider):
-        return item
+        # return item
+        with open('/Users/hugo/dev/qiubai.txt', 'a+') as f:
+            f.write('作者：{} \n{}\n点赞：{}\t评论数：{}\n\n'.format(
+                item['author'], item["body"], item['funNum'], item["comNum"]))
