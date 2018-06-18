@@ -7,5 +7,13 @@
 
 
 class HugoblogPipeline(object):
+    def __init__(self):
+        self.articles = []
+
     def process_item(self, item, spider):
+        self.articles.append(item)
         return item
+
+    def close_spider(self, spider):
+        spider.logger.info('close spider...')
+        spider.logger.info(self.articles)
